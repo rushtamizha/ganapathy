@@ -8,8 +8,8 @@ import {
   Route, BadgeIndianRupee, Clock, ShieldCheck, Sparkles, ArrowRight,
 } from 'lucide-react'
 
-const PHONE = '+919789335689'
-const WHATSAPP = '919789335689'
+const PHONE = '+919626388683'
+const WHATSAPP = '919626388683'
 
 export default function CarCard({ vehicle, variant = 'airport', onBook }) {
   const waText = encodeURIComponent(`Hi, I'd like to book the ${vehicle.name}. Please share availability.`)
@@ -38,7 +38,7 @@ export default function CarCard({ vehicle, variant = 'airport', onBook }) {
 
       <div className="p-5">
         <div className="flex items-start justify-between gap-2 mb-3">
-          <h3 className="font-serif text-lg font-semibold leading-snug text-slate-900">
+          <h3 className=" text-lg font-semibold leading-snug text-slate-900">
             {vehicle.name}
           </h3>
         </div>

@@ -24,8 +24,8 @@ import {
 } from '@/lib/data'
 import BookingForm from '@/components/BookingForm'
 
-const PHONE = '+919789335689'
-const WHATSAPP = '919789335689'
+const PHONE = '+919626388683'
+const WHATSAPP = '919626388683'
 
 const App = () => {
   const [activeTrip, setActiveTrip] = useState('airport')
@@ -41,7 +41,7 @@ const App = () => {
   return (
     <div className="min-h-screen bg-white text-slate-900">
       {/* Top announcement bar */}
-      <div className="text-xs bg-slate-900 text-slate-100">
+      <div className="hidden text-xs bg-slate-900 text-slate-100">
         <div className="flex items-center justify-between px-4 py-2 mx-auto max-w-7xl">
           <div className="flex items-center gap-3">
             <span className="hidden sm:inline-flex items-center gap-1.5">
@@ -56,8 +56,8 @@ const App = () => {
             <a href={`tel:${PHONE}`} className="inline-flex items-center gap-1 transition hover:text-amber-400">
               <Phone className="w-3 h-3" /> <span className="hidden sm:inline">{PHONE}</span>
             </a>
-            <a href="mailto:hello@nammaride.in" className="items-center hidden gap-1 transition md:inline-flex hover:text-amber-400">
-              <Mail className="w-3 h-3" /> hello@nammaride.in
+            <a href="mailto:Shajaramesh5@gmail.com" className="items-center hidden gap-1 transition md:inline-flex hover:text-amber-400">
+              <Mail className="w-3 h-3" /> Shajaramesh5@gmail.com
             </a>
           </div>
         </div>
@@ -71,7 +71,7 @@ const App = () => {
               <CarFront className="w-5 h-5 text-slate-900" />
             </div>
             <div className="leading-tight">
-              <div className="font-serif text-lg font-bold text-slate-900">Sri Ganapathy Travels</div>
+              <div className="text-xl font-bold uppercase text-slate-900">Sri Ganapathy Travels</div>
               <div className="text-[10px] uppercase tracking-[0.2em] text-amber-600 font-semibold"> Travels</div>
             </div>
           </a>
@@ -89,7 +89,7 @@ const App = () => {
             <a href={`tel:${PHONE}`} className="items-center hidden gap-2 px-3 py-2 text-sm font-medium transition md:inline-flex text-slate-700 hover:text-amber-600">
               <Phone className="w-4 h-4" /> {PHONE}
             </a>
-            <Button onClick={() => openBooking(null)} className="px-5 font-semibold text-amber-400 bg-slate-900 hover:bg-slate-800">
+            <Button onClick={() => openBooking(null)} className="hidden px-5 font-semibold text-amber-400 bg-slate-900 hover:bg-slate-800 md:flex">
               Book Now <ArrowRight className="w-4 h-4 ml-1" />
             </Button>
             <button onClick={() => setMobileMenu(v => !v)} className="p-2 ml-1 border rounded-md lg:hidden border-slate-200">
@@ -116,9 +116,9 @@ const App = () => {
               <Star className="h-3.5 w-3.5 mr-1 fill-amber-500 text-amber-500" />
               4.9 / 5 rated on Google · 12,000+ happy riders
             </Badge>
-            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] text-slate-900 mb-5">
+            <h1 className=" text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] text-slate-900 mb-5">
               Premium Taxi Service <br />
-              for <span className="text-amber-600">South Indian</span> Travellers.
+              for <span className="text-amber-600">Pondicherry</span> Travellers.
             </h1>
             <p className="max-w-xl mb-8 text-lg text-slate-600">
               Airport transfers, outstation journeys and local rentals — transparent fares, chauffeur-driven
@@ -194,7 +194,7 @@ const App = () => {
             {[...Array(2)].map((_, k) => (
               <div key={k} className="flex items-center gap-12 px-6 shrink-0">
                 {['TCS','Infosys','Wipro','Flipkart','Accenture','Biocon','Bosch','Google','Amazon','Mercedes-Benz','Deloitte','KPMG'].map((brand)=>(
-                  <span key={brand} className="font-serif text-xl tracking-widest text-slate-400">{brand}</span>
+                  <span key={brand} className="text-xl tracking-widest text-slate-400">{brand}</span>
                 ))}
               </div>
             ))}
@@ -208,13 +208,67 @@ const App = () => {
         <SectionHeader
           eyebrow="Airport Transfers"
           icon={Plane}
-          title="Book Airport Taxi "
+          title="Chennai Airport Taxi "
           subtitle="Choose from the wide range of Cab/Taxi with our airport taxi . Flat rates, no surge, meet-and-greet drivers."
         />
         <div className="grid gap-6 mt-10 md:grid-cols-2 lg:grid-cols-3">
           {AIRPORT_TAXIS.map((v) => (
             <CarCard key={v.id} vehicle={v} variant="airport" onBook={openBooking} />
           ))}
+        </div>
+      </section>
+
+      <section id="outstation" className="px-4 py-16 mx-auto max-w-7xl lg:py-24">
+        <SectionHeader
+          eyebrow="Outstation Cabs"
+          icon={Route}
+          title="Book Outstation Taxi Hire from Pondicherry"
+          subtitle="Choose from the wide range of outstation taxi . Per-km pricing with driver bata. Round-trip or one-way."
+        />
+        <div className="grid gap-6 mt-10 md:grid-cols-2 lg:grid-cols-3">
+          {OUTSTATION_TAXIS.map((v) => (
+            <CarCard key={v.id} vehicle={v} variant="outstation" onBook={openBooking} />
+          ))}
+        </div>
+      </section>
+
+      <section id="local" className="px-4 py-16 mx-auto max-w-7xl lg:py-24">
+        <SectionHeader
+          eyebrow="Local Rentals"
+          icon={Car}
+          title="Best Pondicherry Local Taxi Hire Service"
+          subtitle="Choose from the wide range of Cab/Taxi with our local taxi . Hourly packages with flexible extensions."
+        />
+        <div className="grid gap-6 mt-10 md:grid-cols-2 lg:grid-cols-3">
+          {LOCAL_TAXIS.map((v) => (
+            <CarCard key={v.id} vehicle={v} variant="local" onBook={openBooking} />
+          ))}
+        </div>
+      </section>
+
+      <section id="routes" className="bg-gradient-to-b from-amber-50/60 to-white border-y border-amber-100/70">
+        <div className="px-4 py-16 mx-auto max-w-7xl lg:py-20">
+          <SectionHeader
+            eyebrow="Our Services Locations"
+            icon={MapPin}
+            title=""
+            subtitle="Our most-booked outstation destinations with dedicated chauffeurs and all-inclusive pricing."
+          />
+          <div className="grid gap-6 mt-10 sm:grid-cols-2 lg:grid-cols-3">
+            {OUTSTATION_ROUTES.map(r => (
+              <div key={r.city} className="group relative rounded-2xl overflow-hidden border border-white shadow-sm hover:shadow-xl transition aspect-[4/3]">
+                <Image src={r.img} alt={r.city} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover transition-transform duration-500 group-hover:scale-105" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/30 to-transparent" />
+                <div className="absolute inset-0 flex flex-col justify-end p-5 text-white">
+                  <div className="mb-1 text-2xl font-bold">{r.city}</div>
+                  <div className="flex items-center justify-between">
+
+
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -226,8 +280,8 @@ const App = () => {
               <Badge className="mb-4 text-amber-400 bg-amber-500/10 border-amber-500/20 hover:bg-amber-500/10">
                 <Sparkles className="h-3.5 w-3.5 mr-1" /> Why Sri Ganapathy Travels
               </Badge>
-              <h2 className="mb-5 font-serif text-3xl font-bold text-white lg:text-5xl">
-                Enterprise-grade travel, <span className="text-amber-400">crafted for every rider.</span>
+              <h2 className="mb-5 text-3xl font-bold text-white lg:text-5xl">
+                Seamless Travel, <span className="text-amber-400">Sophisticated Rides.</span>
               </h2>
               <p className="mb-8 text-lg text-slate-300">
                 Over a decade of experience serving  Fortune 500 enterprises to families heading on
@@ -264,62 +318,13 @@ const App = () => {
         </div>
       </section>
 
-      {/* OUTSTATION */}
-      <section id="outstation" className="px-4 py-16 mx-auto max-w-7xl lg:py-24">
-        <SectionHeader
-          eyebrow="Outstation Cabs"
-          icon={Route}
-          title="Book Outstation Taxi Hire from Bangalore"
-          subtitle="Choose from the wide range of outstation taxi . Per-km pricing with driver bata. Round-trip or one-way."
-        />
-        <div className="grid gap-6 mt-10 md:grid-cols-2 lg:grid-cols-3">
-          {OUTSTATION_TAXIS.map((v) => (
-            <CarCard key={v.id} vehicle={v} variant="outstation" onBook={openBooking} />
-          ))}
-        </div>
-      </section>
+      
 
       {/* Popular Routes */}
-      <section id="routes" className="bg-gradient-to-b from-amber-50/60 to-white border-y border-amber-100/70">
-        <div className="px-4 py-16 mx-auto max-w-7xl lg:py-20">
-          <SectionHeader
-            eyebrow="Our Services Locations"
-            icon={MapPin}
-            title=""
-            subtitle="Our most-booked outstation destinations with dedicated chauffeurs and all-inclusive pricing."
-          />
-          <div className="grid gap-6 mt-10 sm:grid-cols-2 lg:grid-cols-3">
-            {OUTSTATION_ROUTES.map(r => (
-              <div key={r.city} className="group relative rounded-2xl overflow-hidden border border-white shadow-sm hover:shadow-xl transition aspect-[4/3]">
-                <Image src={r.img} alt={r.city} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover transition-transform duration-500 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/30 to-transparent" />
-                <div className="absolute inset-0 flex flex-col justify-end p-5 text-white">
-                  <div className="mb-1 font-serif text-2xl font-bold">{r.city}</div>
-                  <div className="flex items-center justify-between">
-
-
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      
 
       {/* LOCAL */}
-      <section id="local" className="px-4 py-16 mx-auto max-w-7xl lg:py-24">
-        <SectionHeader
-          eyebrow="Local Rentals"
-          icon={Car}
-          title="Best Bangalore Local Taxi Hire Service"
-          subtitle="Choose from the wide range of Cab/Taxi with our local taxi . Hourly packages with flexible extensions."
-        />
-        <div className="grid gap-6 mt-10 md:grid-cols-2 lg:grid-cols-3">
-          {LOCAL_TAXIS.map((v) => (
-            <CarCard key={v.id} vehicle={v} variant="local" onBook={openBooking} />
-          ))}
-        </div>
-      </section>
+      
 
       {/* How it works */}
       <section className="bg-slate-50 border-y border-slate-100">
@@ -355,7 +360,7 @@ const App = () => {
         <SectionHeader
           eyebrow="Rider Stories"
           icon={Quote}
-          title="Loved by 12,000+ Bengalureans"
+          title="Loved by 12,000+ Customers"
           subtitle="From business travellers to weekend-getaway families — here’s what they say."
         />
         <div className="grid gap-5 mt-10 md:grid-cols-2 lg:grid-cols-4">
@@ -440,7 +445,7 @@ const App = () => {
                 <CarFront className="w-5 h-5 text-slate-900" />
               </div>
               <div>
-                <div className="font-serif text-lg font-bold text-white">Sri Ganapathy Travels</div>
+                <div className="text-lg font-bold text-white uppercase">Sri Ganapathy Travels</div>
                 <div className="text-[10px] uppercase tracking-[0.2em] text-amber-400">Travels</div>
               </div>
             </div>
@@ -483,7 +488,7 @@ const App = () => {
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-2"><MapPin className="h-4 w-4 text-amber-400 mt-0.5 shrink-0" /> 113, Mission St, Heritage Town, Puducherry, 605001</li>
               <li className="flex items-center gap-2"><Phone className="w-4 h-4 text-amber-400" /> <a href={`tel:${PHONE}`} className="hover:text-amber-400">{PHONE}</a></li>
-              <li className="flex items-center gap-2"><Mail className="w-4 h-4 text-amber-400" /> <a href="mailto:hello@nammaride.in" className="hover:text-amber-400">hello@nammaride.in</a></li>
+              <li className="flex items-center gap-2"><Mail className="w-4 h-4 text-amber-400" /> <a href="mailto:Shajaramesh5@gmail.com" className="hover:text-amber-400">Shajaramesh5@gmail.com</a></li>
               <li className="flex items-center gap-2"><Clock className="w-4 h-4 text-amber-400" /> 24 × 7 · All days</li>
             </ul>
           </div>
@@ -518,10 +523,10 @@ function SectionHeader({ eyebrow, icon: Icon, title, subtitle }) {
       <div className="inline-flex items-center gap-2 px-3 py-1 mb-4 text-xs font-semibold tracking-wider uppercase border rounded-full text-amber-700 border-amber-100 bg-amber-50">
         {Icon ? <Icon className="h-3.5 w-3.5" /> : null} {eyebrow}
       </div>
-      <h2 className="mb-3 font-serif text-3xl font-bold leading-tight lg:text-5xl text-slate-900">
+      <h2 className="mb-3 text-3xl font-bold leading-tight lg:text-5xl text-slate-900">
         {title}
       </h2>
-      <p className="text-base text-slate-600 lg:text-lg">{subtitle}</p>
+      <p className="hidden text-base text-slate-600 lg:text-lg">{subtitle}</p>
       <div className="w-20 h-1 mx-auto mt-6 rounded-full bg-gradient-to-r from-amber-300 via-amber-500 to-amber-300" />
     </div>
   )

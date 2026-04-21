@@ -44,7 +44,7 @@ const BookingForm = () => {
   };
 
   const handleWhatsAppRedirect = () => {
-    const phoneNumber = "919789335689"; // Replace with your business number
+    const phoneNumber = "919626388683"; // Replace with your business number
     const message = `*New Booking Request*%0A` +
       `--------------------------%0A` +
       `*Service:* ${activeTrip.toUpperCase()}%0A` +
@@ -68,13 +68,13 @@ const BookingForm = () => {
     >
       <Tabs defaultValue="airport" onValueChange={setActiveTrip} className="w-full">
         <TabsList className="grid w-full h-auto grid-cols-3 p-1.5 bg-slate-50 rounded-2xl mb-4">
-          <TabsTrigger value="airport" className="data-[state=active]:bg-white data-[state=active]:text-amber-700 data-[state=active]:shadow-sm py-3 rounded-xl font-bold text-xs sm:text-sm transition-all">
+          <TabsTrigger value="airport" className="data-[state=active]:bg-slate-900 data-[state=active]:text-yellow-300 data-[state=active]:shadow-sm py-3 rounded-xl font-bold text-xs sm:text-sm transition-all">
             <Plane className="w-4 h-4 mr-2" />Airport
           </TabsTrigger>
-          <TabsTrigger value="outstation" className="data-[state=active]:bg-white data-[state=active]:text-amber-700 data-[state=active]:shadow-sm py-3 rounded-xl font-bold text-xs sm:text-sm transition-all">
+          <TabsTrigger value="outstation" className="data-[state=active]:bg-slate-900 data-[state=active]:text-yellow-300 data-[state=active]:shadow-sm py-3 rounded-xl font-bold text-xs sm:text-sm transition-all">
             <Route className="w-4 h-4 mr-2" />Outstation
           </TabsTrigger>
-          <TabsTrigger value="local" className="data-[state=active]:bg-white data-[state=active]:text-amber-700 data-[state=active]:shadow-sm py-3 rounded-xl font-bold text-xs sm:text-sm transition-all">
+          <TabsTrigger value="local" className="data-[state=active]:bg-slate-900 data-[state=active]:text-yellow-300 data-[state=active]:shadow-sm py-3 rounded-xl font-bold text-xs sm:text-sm transition-all">
             <MapPin className="w-4 h-4 mr-2" />Local
           </TabsTrigger>
         </TabsList>
@@ -149,7 +149,7 @@ const BookingForm = () => {
             <MessageSquare className="w-5 h-5 ml-2 transition-transform group-hover:scale-110" />
           </Button>
           
-          <p className="text-[10px] text-center text-slate-400 font-medium">
+          <p className="text-[10px] text-center text-slate-400 font-medium hidden">
             * Instant confirmation via WhatsApp. No hidden charges.
           </p>
         </div>

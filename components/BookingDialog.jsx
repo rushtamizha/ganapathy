@@ -175,7 +175,7 @@ export default function BookingDialog({ open, onOpenChange, vehicle }) {
     
     await new Promise(r => setTimeout(r, 900));
     
-    window.open(`https://wa.me/919789335689?text=${text}`, '_blank');
+    window.open(`https://wa.me/919626388683?text=${text}`, '_blank');
     
     setSubmitting(false);
     onOpenChange(false);

@@ -30,11 +30,11 @@
   }
 }
 
-@layer base {
+/* @layer base {
   * { @apply border-border; }
   body { @apply bg-background text-foreground; font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif; }
   h1, h2, h3, h4 { font-family: var(--font-playfair), serif; letter-spacing: -0.01em; }
-}
+} */
 
 .hero-gradient {
   background:
