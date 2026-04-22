@@ -1,6 +1,9 @@
 import './globals.css'
 import { Plus_Jakarta_Sans, Playfair_Display } from 'next/font/google'
 import { Toaster } from '@/components/ui/sonner'
+import ContactButton from '@/components/WhatsappButton'
+import Navbar from '@/components/Navbar'
+import Footer from '@/components/Footer'
 
 // This is the closest free/legal alternative to Google Sans
 const googleSansAlternative = Plus_Jakarta_Sans({
@@ -16,10 +19,16 @@ const playfair = Playfair_Display({
   display: 'swap',
 })
 
+
+
 export const metadata = {
   title: {
     default: 'Sri Ganapathy Travels | Premium Taxi Services in Pondicherry & TN',
     template: '%s | Sri Ganapathy Travels'
+  },
+  icons: {
+    icon: '/logo.jpg', // Place your favicon.ico in /public
+    apple: '/logo.jpg', // For iPhones
   },
   description: 'Experience premium travel with Sri Ganapathy Travels. Specialized in Pondicherry to Chennai Airport drops, luxury outstation tours, and local rentals across Tamil Nadu.',
   keywords: [
@@ -42,11 +51,14 @@ export default function RootLayout({ children }) {
         {/* Performance & Error Handling Script */}
         <script dangerouslySetInnerHTML={{__html:'window.addEventListener("error",function(e){if(e.error instanceof DOMException&&e.error.name==="DataCloneError"&&e.message&&e.message.includes("PerformanceServerTiming")){e.stopImmediatePropagation();e.preventDefault()}},true);'}} />
       </head>
-      <body className="antialiased  bg-slate-50/30 text-slate-900 selection:bg-amber-100 selection:text-amber-900">
+      <body className="antialiased bg-slate-50/30 text-slate-900 selection:bg-amber-100 selection:text-amber-900">
         <main className="relative min-h-screen">
+          <Navbar/>
           {children}
         </main>
         <Toaster position="top-center" richColors closeButton />
+        <ContactButton/>
+        <Footer/>
       </body>
     </html>
   )

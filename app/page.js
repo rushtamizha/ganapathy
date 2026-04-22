@@ -23,6 +23,8 @@ import {
   TESTIMONIALS, FAQS, CAR_IMAGES,
 } from '@/lib/data'
 import BookingForm from '@/components/BookingForm'
+import Footer from '@/components/Footer'
+import Navbar from '@/components/Navbar'
 
 const PHONE = '+919626388683'
 const WHATSAPP = '919626388683'
@@ -62,52 +64,6 @@ const App = () => {
           </div>
         </div>
       </div>
-
-      {/* Navigation */}
-      <header className="sticky top-0 z-40 border-b bg-white/90 backdrop-blur-xl border-slate-100">
-        <div className="flex items-center justify-between px-4 py-4 mx-auto max-w-7xl">
-          <a href="#" className="flex items-center gap-2">
-            <div className="flex items-center justify-center w-10 h-10 shadow-md rounded-xl bg-gradient-to-br from-amber-400 to-amber-600 shadow-amber-200">
-              <CarFront className="w-5 h-5 text-slate-900" />
-            </div>
-            <div className="leading-tight">
-              <div className="text-xl font-bold uppercase text-slate-900">Sri Ganapathy Travels</div>
-              <div className="text-[10px] uppercase tracking-[0.2em] text-amber-600 font-semibold"> Travels</div>
-            </div>
-          </a>
-
-          <nav className="items-center hidden gap-8 text-sm font-medium lg:flex text-slate-700">
-            <a href="#airport" className="transition hover:text-amber-600">Airport Taxi</a>
-            <a href="#outstation" className="transition hover:text-amber-600">Outstation</a>
-            <a href="#local" className="transition hover:text-amber-600">Local Rental</a>
-            <a href="#routes" className="transition hover:text-amber-600">Popular Routes</a>
-            <a href="#why" className="transition hover:text-amber-600">Why Us</a>
-            <a href="#faq" className="transition hover:text-amber-600">FAQ</a>
-          </nav>
-
-          <div className="flex items-center gap-2">
-            <a href={`tel:${PHONE}`} className="items-center hidden gap-2 px-3 py-2 text-sm font-medium transition md:inline-flex text-slate-700 hover:text-amber-600">
-              <Phone className="w-4 h-4" /> {PHONE}
-            </a>
-            <Button onClick={() => openBooking(null)} className="hidden px-5 font-semibold text-amber-400 bg-slate-900 hover:bg-slate-800 md:flex">
-              Book Now <ArrowRight className="w-4 h-4 ml-1" />
-            </Button>
-            <button onClick={() => setMobileMenu(v => !v)} className="p-2 ml-1 border rounded-md lg:hidden border-slate-200">
-              {mobileMenu ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </button>
-          </div>
-        </div>
-        {mobileMenu && (
-          <div className="bg-white border-t lg:hidden border-slate-100">
-            <div className="flex flex-col gap-1 px-4 py-3 text-sm font-medium">
-              {[['Airport Taxi','#airport'],['Outstation','#outstation'],['Local Rental','#local'],['Popular Routes','#routes'],['Why Us','#why'],['FAQ','#faq']].map(([l,h])=> (
-                <a key={h} href={h} onClick={()=>setMobileMenu(false)} className="py-2 text-slate-700 hover:text-amber-600">{l}</a>
-              ))}
-            </div>
-          </div>
-        )}
-      </header>
-
       {/* HERO */}
       <section className="relative overflow-hidden hero-gradient">
         <div className="grid items-center gap-10 px-4 py-12 mx-auto max-w-7xl lg:py-20 lg:grid-cols-12">
@@ -139,7 +95,7 @@ const App = () => {
           </div>
 
           {/* Hero image */}
-          <div className="relative lg:col-span-5">
+          <div className="relative hidden lg:block lg:col-span-5">
             <div className="relative aspect-[4/5] sm:aspect-[5/4] lg:aspect-[4/5] rounded-3xl overflow-hidden card-shadow">
               <Image
                 src={CAR_IMAGES.heroTaxi}
@@ -208,8 +164,8 @@ const App = () => {
         <SectionHeader
           eyebrow="Airport Transfers"
           icon={Plane}
-          title="Chennai Airport Taxi "
-          subtitle="Choose from the wide range of Cab/Taxi with our airport taxi . Flat rates, no surge, meet-and-greet drivers."
+          title="Pondicherry to Chennai Airport Taxi"
+          subtitle="Pondy to Chennai & chennai to Pondy mostly Recommended trip"
         />
         <div className="grid gap-6 mt-10 md:grid-cols-2 lg:grid-cols-3">
           {AIRPORT_TAXIS.map((v) => (
@@ -223,7 +179,7 @@ const App = () => {
           eyebrow="Outstation Cabs"
           icon={Route}
           title="Book Outstation Taxi Hire from Pondicherry"
-          subtitle="Choose from the wide range of outstation taxi . Per-km pricing with driver bata. Round-trip or one-way."
+          subtitle="All Over India Round Trip Available"
         />
         <div className="grid gap-6 mt-10 md:grid-cols-2 lg:grid-cols-3">
           {OUTSTATION_TAXIS.map((v) => (
@@ -237,7 +193,6 @@ const App = () => {
           eyebrow="Local Rentals"
           icon={Car}
           title="Best Pondicherry Local Taxi Hire Service"
-          subtitle="Choose from the wide range of Cab/Taxi with our local taxi . Hourly packages with flexible extensions."
         />
         <div className="grid gap-6 mt-10 md:grid-cols-2 lg:grid-cols-3">
           {LOCAL_TAXIS.map((v) => (
@@ -252,7 +207,6 @@ const App = () => {
             eyebrow="Our Services Locations"
             icon={MapPin}
             title=""
-            subtitle="Our most-booked outstation destinations with dedicated chauffeurs and all-inclusive pricing."
           />
           <div className="grid gap-6 mt-10 sm:grid-cols-2 lg:grid-cols-3">
             {OUTSTATION_ROUTES.map(r => (
@@ -333,7 +287,6 @@ const App = () => {
             eyebrow="Simple. Instant. Effortless."
             icon={Sparkles}
             title="Book your cab in under 60 seconds"
-            subtitle="No sign-ups, no wait. Our concierge confirms your booking within 2 minutes over call."
           />
           <div className="grid gap-6 mt-10 md:grid-cols-4">
             {[
@@ -361,7 +314,6 @@ const App = () => {
           eyebrow="Rider Stories"
           icon={Quote}
           title="Loved by 12,000+ Customers"
-          subtitle="From business travellers to weekend-getaway families — here’s what they say."
         />
         <div className="grid gap-5 mt-10 md:grid-cols-2 lg:grid-cols-4">
           {TESTIMONIALS.map(t => (
@@ -422,7 +374,6 @@ const App = () => {
           eyebrow="Frequently Asked"
           icon={CheckMark}
           title="Your questions, answered."
-          subtitle="Everything you need to know before booking your Bengaluru taxi."
         />
         <Accordion type="single" collapsible className="mt-10 space-y-3">
           {FAQS.map((f, i) => (
@@ -435,82 +386,7 @@ const App = () => {
           ))}
         </Accordion>
       </section>
-
-      {/* Footer */}
-      <footer className="bg-slate-950 text-slate-300">
-        <div className="grid gap-10 px-4 mx-auto max-w-7xl py-14 sm:grid-cols-2 lg:grid-cols-4">
-          <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-amber-600">
-                <CarFront className="w-5 h-5 text-slate-900" />
-              </div>
-              <div>
-                <div className="text-lg font-bold text-white uppercase">Sri Ganapathy Travels</div>
-                <div className="text-[10px] uppercase tracking-[0.2em] text-amber-400">Travels</div>
-              </div>
-            </div>
-            <p className="mb-4 text-sm text-slate-400">
-              Pondycherry's most trusted premium taxi  Airport, outstation and local rentals with
-              transparent pricing and verified chauffeurs.
-            </p>
-            <div className="flex items-center hidden gap-3">
-              {[Facebook, Instagram, Twitter].map((I, i) => (
-                <a key={i} href="#" className="flex items-center justify-center transition rounded-full h-9 w-9 bg-white/5 hover:bg-amber-500 hover:text-slate-900">
-                  <I className="w-4 h-4" />
-                </a>
-              ))}
-            </div>
-          </div>
-          <div>
-            <div className="mb-4 font-semibold text-white">Services</div>
-            <ul className="space-y-2 text-sm">
-              <li><a href="#airport" className="hover:text-amber-400">Airport Taxi</a></li>
-              <li><a href="#outstation" className="hover:text-amber-400">Outstation Cabs</a></li>
-              <li><a href="#local" className="hover:text-amber-400">Local Rentals</a></li>
-              <li><a href="#routes" className="hover:text-amber-400">Popular Routes</a></li>
-              <li><a href="#" className="hover:text-amber-400">Corporate Travel</a></li>
-              <li><a href="#" className="hover:text-amber-400">Wedding & Events</a></li>
-            </ul>
-          </div>
-          <div>
-            <div className="mb-4 font-semibold text-white">Quick Links</div>
-            <ul className="space-y-2 text-sm">
-              <li><a href="#why" className="hover:text-amber-400">Why Choose Us</a></li>
-              <li><a href="#faq" className="hover:text-amber-400">FAQ</a></li>
-              <li><a href="#" className="hover:text-amber-400">Terms of Service</a></li>
-              <li><a href="#" className="hover:text-amber-400">Privacy Policy</a></li>
-              <li><a href="#" className="hover:text-amber-400">Refund Policy</a></li>
-              <li><a href="#" className="hover:text-amber-400">Careers</a></li>
-            </ul>
-          </div>
-          <div>
-            <div className="mb-4 font-semibold text-white">Reach Us</div>
-            <ul className="space-y-3 text-sm">
-              <li className="flex items-start gap-2"><MapPin className="h-4 w-4 text-amber-400 mt-0.5 shrink-0" /> 113, Mission St, Heritage Town, Puducherry, 605001</li>
-              <li className="flex items-center gap-2"><Phone className="w-4 h-4 text-amber-400" /> <a href={`tel:${PHONE}`} className="hover:text-amber-400">{PHONE}</a></li>
-              <li className="flex items-center gap-2"><Mail className="w-4 h-4 text-amber-400" /> <a href="mailto:Shajaramesh5@gmail.com" className="hover:text-amber-400">Shajaramesh5@gmail.com</a></li>
-              <li className="flex items-center gap-2"><Clock className="w-4 h-4 text-amber-400" /> 24 × 7 · All days</li>
-            </ul>
-          </div>
-        </div>
-        <div className="border-t border-white/10">
-          <div className="flex flex-col items-center justify-between gap-3 px-4 py-5 mx-auto text-xs max-w-7xl sm:flex-row text-slate-500">
-            <div>© {new Date().getFullYear()} Sri Ganapathy Travels. All rights reserved.</div>
-            <div>GSTIN: 29AAAAA0000A1Z5 · PAN: AAAAA0000A</div>
-          </div>
-        </div>
-      </footer>
-
-      {/* Floating WhatsApp */}
-      <a
-        href={`https://wa.me/${WHATSAPP}`}
-        target="_blank" rel="noreferrer"
-        className="fixed z-40 flex items-center justify-center text-white transition rounded-full shadow-xl bottom-6 right-6 h-14 w-14 bg-emerald-500 hover:bg-emerald-600 shadow-emerald-500/40 hover:scale-110"
-        aria-label="WhatsApp us"
-      >
-        <MessageCircle className="w-6 h-6" />
-        <span className="absolute inline-flex w-full h-full rounded-full bg-emerald-400 opacity-40 animate-ping"></span>
-      </a>
+      
 
       <BookingDialog open={bookingOpen} onOpenChange={setBookingOpen} vehicle={selectedVehicle} />
     </div>
@@ -526,7 +402,7 @@ function SectionHeader({ eyebrow, icon: Icon, title, subtitle }) {
       <h2 className="mb-3 text-3xl font-bold leading-tight lg:text-5xl text-slate-900">
         {title}
       </h2>
-      <p className="hidden text-base text-slate-600 lg:text-lg">{subtitle}</p>
+      { subtitle && <p className="text-base text-slate-600 lg:text-lg">{subtitle }</p> }
       <div className="w-20 h-1 mx-auto mt-6 rounded-full bg-gradient-to-r from-amber-300 via-amber-500 to-amber-300" />
     </div>
   )
