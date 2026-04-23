@@ -26,7 +26,7 @@ const ContactButton = () => {
   ];
 
   return (
-    <div className="fixed bottom-6 right-6 z-[100] flex flex-col items-center gap-3">
+    <div className="fixed bottom-6 right-6 z-[10] flex flex-col items-center gap-3">
       {actions.map((action, index) => (
         <div key={action.id} className="relative flex items-center justify-center group">
           {/* Label on Hover */}

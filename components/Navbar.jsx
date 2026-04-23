@@ -10,7 +10,7 @@ const Navbar = () => {
   const PHONE = "+919626388683";
 
   return (
-    <header className="sticky top-0 z-[100] border-b bg-white/80 backdrop-blur-xl border-slate-100">
+    <header className="sticky top-0 z-[10] border-b bg-white/80 backdrop-blur-xl border-slate-100">
       <div className="flex items-center justify-between px-6 py-4 mx-auto max-w-7xl">
         {/* Logo Section */}
         <a href="/" className="flex items-center gap-3 group">
@@ -30,10 +30,10 @@ const Navbar = () => {
         {/* Desktop Navigation */}
         <nav className="items-center hidden gap-8 text-[13px] font-black uppercase tracking-wider lg:flex text-slate-500">
           {[
-            ["Airport Taxi", "#airport"],
-            ["Outstation", "#outstation"],
-            ["Local Rental", "#local"],
-            ["Popular Routes", "#routes"],
+            ["Airport Taxi", "/#airport"],
+            ["Outstation", "/#outstation"],
+            ["Local Rental", "/#local"],
+            ["Popular Routes", "/#routes"],
           ].map(([label, link]) => (
             <a
               key={link}
@@ -79,11 +79,11 @@ const Navbar = () => {
         <div className="absolute left-0 w-full duration-300 bg-white border-b shadow-2xl top-full border-slate-100 lg:hidden animate-in slide-in-from-top-2">
           <div className="flex flex-col gap-2 p-6">
             {[
-              ["Airport Taxi", "#airport"],
-              ["Outstation", "#outstation"],
-              ["Local Rental", "#local"],
-              ["Popular Routes", "#routes"],
-              ["Why Us", "#why"],
+              ["Airport Taxi", "/#airport"],
+              ["Outstation", "/#outstation"],
+              ["Local Rental", "/#local"],
+              ["Popular Routes", "/#routes"],
+              ["Why Us", "/#why"],
               ["FAQ", "#faq"],
             ].map(([label, link]) => (
               <a

@@ -66,7 +66,7 @@ const Footer = () => {
             <ul className="space-y-3 text-sm font-bold">
               {['terms', 'privacy', 'refund', 'contact'].map((item) => (
                 <li key={item}>
-                  <a href={`/${item}`} className="flex items-center gap-2 transition-colors group hover:text-amber-400 text-slate-400">
+                  <a href={`/${item}`} className="flex items-center gap-2 uppercase transition-colors group hover:text-amber-400 text-slate-400">
                     <ChevronRight className="w-3 h-3 text-slate-800 group-hover:text-amber-500" />
                     {item}
                   </a>

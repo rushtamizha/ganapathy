@@ -67,7 +67,7 @@ const App = () => {
       {/* HERO */}
       <section className="relative overflow-hidden hero-gradient">
         <div className="grid items-center gap-10 px-4 py-12 mx-auto max-w-7xl lg:py-20 lg:grid-cols-12">
-          <div className="relative z-10 lg:col-span-7">
+          <div className="relative z-1 lg:col-span-7">
             <Badge className="px-3 py-1 mb-5 font-semibold text-amber-800 bg-amber-100 border-amber-200 hover:bg-amber-100">
               <Star className="h-3.5 w-3.5 mr-1 fill-amber-500 text-amber-500" />
               4.9 / 5 rated on Google · 12,000+ happy riders

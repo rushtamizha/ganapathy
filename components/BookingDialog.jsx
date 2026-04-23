@@ -82,7 +82,7 @@ export default function BookingDialog({ open, onOpenChange, vehicle }) {
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-lg overflow-hidden bg-white border-amber-100">
         {!isLoaded ? (
-          <div className="h-[400px] flex flex-col items-center justify-center gap-4">
+          <div className="flex flex-col items-center justify-center h-[400px] gap-4">
             <Loader2 className="w-8 h-8 animate-spin text-amber-500" />
             <p className="text-sm font-medium text-slate-500">Initializing Secure Booking...</p>
           </div>
